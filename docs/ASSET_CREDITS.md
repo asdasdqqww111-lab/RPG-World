@@ -1,23 +1,13 @@
 # توثيق الأصول
 
-## حالة خامة الأرض
+## خامة الأرض الإجرائية
 
-لم تُدمج خامة صورة خارجية في المشروع بعد. الخامة الموجودة في `scenes/world/flat_terrain.tscn` تظل مادة Godot بسيطة مولدة من إعدادات المادة، وليست صورة واقعية أو خامة PBR.
+تُولّد خامة الأرض داخل المشروع بواسطة Shader في `assets/materials/procedural_ground.gdshader`، ويربطها مشهد `scenes/world/flat_terrain.tscn` بمادة `ShaderMaterial`.
 
-### مرشح تم التحقق من مصدره وترخيصه، لكنه غير مضمّن
+- **المصدر:** كود إجرائي مكتوب للمشروع، وليس صورة أو خامة منقولة من الإنترنت.
+- **الأصول والملفات الخارجية المستخدمة:** لا شيء. لا توجد خرائط Albedo/Color أو Normal أو Roughness خارجية.
+- **الترخيص والنسبة:** لا توجد أصول طرف ثالث تستلزم نسبة أو ترخيصًا إضافيًا. إعداد `roughness` قيمة داخل الـShader، وليس خريطة خشونة خارجية.
+- **الطريقة:** ضوضاء قيمة إجرائية ثنائية الأبعاد بمقياسين باستخدام إحداثيات XZ في العالم، مع مزج لوني بين العشب والتراب. بما أن الإحداثيات عالمية بوحدات المتر، لا تتمدد التفاصيل على كامل سطح الأرض ولا تحتاج إلى UV تكراري.
+- **التعديل:** غيّر ألوان `grass_color` و`soil_color`، أو مقياسي `broad_scale` و`detail_scale`، أو `color_variation` و`soil_amount` و`roughness` في إعدادات المادة ضمن `scenes/world/flat_terrain.tscn`.
 
-- **الاسم:** Ground 037 (ambientCG)
-- **صفحة الأصل:** https://ambientcg.com/view?id=Ground037
-- **المصدر المضيف للملف على GitHub:** https://github.com/wheresjames/dvision/blob/master/assets/textures/Ground037/Ground037_1K-JPG_Color.jpg
-- **بيانات مصدر الملف المحدد:** https://github.com/wheresjames/dvision/blob/master/assets/textures/Ground037/SOURCE.md
-- **المؤلف/المصدر:** ambientCG؛ يذكر توثيق المستودع المصدر Lennart Demes.
-- **الترخيص:** CC0 1.0 Universal وفق ملف `SOURCE.md` الخاص بهذا الملف وصفحة ambientCG للترخيص: https://docs.ambientcg.com/license/ . صفحة الأصل: https://ambientcg.com/view?id=Ground037
-- **الملفات المستخدمة في المشروع:** لا شيء؛ لم يتم نسخ أي ملف خامة إلى هذا المشروع.
-- **الملف الذي تم التحقق من وجوده في المصدر:** `Ground037_1K-JPG_Color.jpg` (ملف لون/Albedo، حجمه 2,187,764 بايت في مستودع المصدر). يذكر ملف المصدر أنه مستخرج من `Ground037_1K-JPG.zip`، وأن أبعاد المادة التقريبية 2.1×2.1 متر.
-- **خرائط PBR الأخرى:** لم يتم التحقق من وجود خرائط Normal أو Roughness في مستودع GitHub المذكور؛ الملف المتاح في مساره هو خريطة اللون فقط. لذلك لا نصف المرشح بأنه حزمة PBR مكتملة.
-
-لم تُضف الخامة لأن بيئة تحرير المستودع المتاحة لهذه المهمة تتيح حفظ ملفات نصية فقط ولا تتيح جلب/إرفاق محتوى ملف JPEG ثنائي. لم يتم وضع ملف وهمي أو تغيير المشهد على أساسه. بعد تنزيل ملف اللون من المصدر والتحقق منه محليًا، يمكن إضافته إلى `assets/textures/ground/`، وضبط خامة الأرض بتكرار UV بحيث تكون كل دورة قرابة 2.1 متر بدل تمديدها على مساحة 1000 متر. يُفضّل عندها استكمال خرائط Normal وRoughness من مصدر موثق بشكل مستقل قبل وصف المادة بأنها PBR.
-
-### المرشح السابق
-
-تم فحص [fabien-michel/sweethome3d-textures-ambientcg](https://github.com/fabien-michel/sweethome3d-textures-ambientcg) وملف [LICENSE](https://github.com/fabien-michel/sweethome3d-textures-ambientcg/blob/main/LICENSE) الذي يعلن CC0 1.0، كما يذكر README أن المحتوى مشتق من ambientCG. لكنه مشروع مولّد/مكتبة كبيرة، ولم يثبت ملفًا محددًا وخرائطه في هذه المهمة؛ لذلك لم تُنسخ منه أصول.
+لم تُضف خامة Ground037 أو أي ملف خارجي؛ كانت نتائج فحص المصدر السابق مرشحًا فقط ولم تُضمّن في المشروع. هذه المادة إجرائية بالكامل.
