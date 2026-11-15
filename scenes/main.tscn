@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/flat_terrain.tscn" id="1_terrain"]
+
+[sub_resource type="Environment" id="Environment_preview"]
+background_mode = 1
+background_color = Color(0.52, 0.72, 0.92, 1)
+ambient_light_source = 1
+ambient_light_color = Color(0.78, 0.82, 0.9, 1)
+ambient_light_energy = 0.65
+
+[node name="Main" type="Node3D"]
+
+[node name="FlatTerrain" parent="." instance=ExtResource("1_terrain")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_preview")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-52, -28, 0)
+light_energy = 1.15
+shadow_enabled = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.882948, -0.469472, 0, 0.469472, 0.882948, 0, 430, 680)
+current = true
+fov = 65.0
+far = 2500.0
